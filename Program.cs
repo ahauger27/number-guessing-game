@@ -1,14 +1,13 @@
 ﻿Random random = new Random();
 
-// initialize an array of length 10 to track guesses
 string[] previousGuesses = new string[10];
-// this array will store strings such as "too low" or "too high"
-// once this array is full of guesses, the game is over and the player has lost
 
 Console.WriteLine("I'm thinking of a number between 1 and 100...");
 Console.WriteLine("You have 10 guesses to get the right answer.");
 
 PlayGame();
+
+Console.WriteLine("Game Over");
 
 void PlayGame()
 {
@@ -19,7 +18,7 @@ void PlayGame()
     {
         if (guessNumber == 10)
         {
-            Console.WriteLine("Final Guess:")
+            Console.WriteLine("Final Guess:");
         }
         else
         {
@@ -27,9 +26,17 @@ void PlayGame()
         }
         
         var guess = GetUserGuess();
+
         previousGuesses[i] = CheckGuess(guess, answer);
         Console.WriteLine(previousGuesses[i]);
         Console.WriteLine("");
+        
+        if (previousGuesses.Contains("Correct!"))
+        {
+            Console.WriteLine("You Win!");
+            return;
+        }
+        
         guessNumber ++;
     }
 }
