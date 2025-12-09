@@ -43,7 +43,6 @@ void PlayGame()
 
 string CheckGuess(int guess, int answer)
 {
-    // Compare guess to answer
     if (guess < answer)
     {
         return "Too low";
